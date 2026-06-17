@@ -1,4 +1,5 @@
 def sort_numbers(numbers):
+      numbers = list(numbers)
       n = len(numbers)
       for i in range(n):
           for j in range(0, n - i - 1):

@@ -15,7 +15,14 @@ def test_reverse():
 def test_duplicates():
     assert sort_numbers([3, 1, 2, 1]) == [1, 1, 2, 3]
 
-def test_returns_same_list():
+def test_does_not_mutate_input():
+    original = [3, 1, 2]
+    original_copy = original[:]
+    sort_numbers(original)
+    assert original == original_copy  # input list must not be modified by sort_numbers
+
+def test_returns_new_list():
     original = [3, 1, 2]
     result = sort_numbers(original)
-    assert result is original  # must return the exact same list object — not a new one
+    assert result is not original  # must return a new list, not the same object
+    assert result == [1, 2, 3]
